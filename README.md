@@ -1,4 +1,7 @@
 # jpub
+--------
+[![npm version](https://badge.fury.io/js/jpub.png)](https://badge.fury.io/js/jpub)
+-----------
 *A jQuery plugin to make a PopUpBox easier.*
 view at [GitHub](https://github.com/PichurChill/jpub)
 ##[DEMO](http://jirachi.win/jpub/)
