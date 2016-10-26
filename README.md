@@ -32,7 +32,7 @@ $(".jpub-div").jShow({
 |2| bg | background div |true |true/false|-|
 |3|bg_color | background div color| 'rgba(0,0,0,0.5)'|'rgba(x,x,x,x)'|2|
 |4|animate_in|animate-in-direction:<br>1:↓、2:←、3:↑、4:→|3|1/2/3/4|-|
-|5|animate_out|animate-out-direction:<br>1:↑、2:→、3:↓、4:←、0:fadeOut()|0|0/1/2/3/4|-|
+|5|animate_out|animate-out-direction:<br>1:↑、2:→、3:↓、4:←|0|0/1/2/3/4|-|
 |6|close_mode|1-click the background div to hide<br>2-create a tag to hide<br>3-specify a html tag to hide|1|1/2/3|-|
 |7|close_tag|the specified html tag|undefined|'#demo'/'.example'/...|6|
 |8|show_pre_func|the function run before the div show|undefined|obj.func/funcName()/function(){alert()}|-|
