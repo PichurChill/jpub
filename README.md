@@ -8,11 +8,11 @@ view at [GitHub](https://github.com/PichurChill/jpub)
 # Function List
 |id|name|description|
 |---|:--|:--|
-|1|`$('tag').jShow()`|the target PopUpBox  has been in the html|
+|1|`$(Selecoter).jShow()`|the target PopUpBox  has been in the html|
 |2|`$.jCreateForm()`|create automatically generated PopUpBox|
 
 # use
-### 1、 `$('tag').jShow();`
+### 1、 `$(Selecoter).jShow();`
 *the target PopUpBox  has been in the html*
 ```js
 $(".jpub-div").jShow({
@@ -62,4 +62,4 @@ $.jCreateForm({
 |id| name | description | default |value|require id|
 |-------------| ------------- |:-----------:| -----:| -----:| -----:|
 |1| tag_id | the PopUpBox's tag id you want name  | jpub_auto_form |-|-|
-|2|parent_tag|the tag you want to append|'body'|'#demo'/'.class:eq(x)'|-|
+|2|parent_tag|the parent tag you want to append|'body'|'#demo'/'.class:eq(x)'|-|
