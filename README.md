@@ -1,5 +1,11 @@
 # jpub
-## A jQuery Extension to make a PopUpBox easier.
+*A jQuery Extension to make a PopUpBox easier.*
+# Function List
+|id|name|description|
+|---|--|--|
+|1|$('tag').jShow();|the target PopUpBox  has been in the html|
+|2|$.jCreateForm()|create automatically generated PopUpBox|
+
 # use
 ### 1、 `$('tag').jShow();`
 *the target PopUpBox  has been in the html*
@@ -36,7 +42,7 @@ $(".jpub-div").jShow({
 |14|hide_pre_param|the parameter of hide_pre_param |undefined|Any|10|
 |15|hide_after_param|the parameter of hide_after_func |undefined|Any|11|
 
-### 2、 `$.jCreateForm().jShow();`
+### 2、 `$.jCreateForm().jShow();`（TODO）
 *create automatically generated PopUpBox*
 
 ```js
