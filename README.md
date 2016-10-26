@@ -1,5 +1,5 @@
 # jpub
-*A jQuery Extension to make a PopUpBox easier.*
+*A jQuery plugin to make a PopUpBox easier.*
 # Function List
 |id|name|description|
 |---|:--|:--|
