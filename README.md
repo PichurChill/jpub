@@ -2,9 +2,9 @@
 *A jQuery Extension to make a PopUpBox easier.*
 # Function List
 |id|name|description|
-|---|--|--|
-|1|$('tag').jShow();|the target PopUpBox  has been in the html|
-|2|$.jCreateForm()|create automatically generated PopUpBox|
+|---|:--|:--|
+|1|`$('tag').jShow()`|the target PopUpBox  has been in the html|
+|2|`$.jCreateForm()`|create automatically generated PopUpBox|
 
 # use
 ### 1、 `$('tag').jShow();`
