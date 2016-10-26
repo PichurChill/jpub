@@ -1,5 +1,7 @@
 # jpub
 *A jQuery plugin to make a PopUpBox easier.*
+view at [GitHub](https://github.com/PichurChill/jpub)
+##[DEMO](http://jirachi.win/jpub/)
 # Function List
 |id|name|description|
 |---|:--|:--|

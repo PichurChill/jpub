@@ -1,0 +1,44 @@
+{
+    "name": "jpub",
+    "title": "Jpub PopUpBox",
+    "description": "A jQuery plugin to make a PopUpBox easier.",
+    "keywords": [
+        "jquery-plugin",
+        "ecosystem:jquery",
+        "alert",
+        "animation",
+        "popupbox",
+        "dialog",
+        "cover"
+    ],
+    "version": "0.6.3",
+    "author": {
+        "name": "jinyonghui",
+        "email": "jinyonghui1994@gmail.com",
+        "url": "https://github.com/PichurChill"
+    },
+    "maintainers": [
+        {
+            "name": "jinyonghui",
+            "email": "jinyonghui1994@gmail.com",
+            "url": "https://github.com/PichurChill"
+        }
+    ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/PichurChill/jpub.git"
+      },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/PichurChill/jpub/blob/master/MIT-LICENSE.txt"
+        }
+    ],
+    "bugs": "https://github.com/PichurChill/jpub/issues",
+    "homepage": "http://jirachi.win/jpub/ ",
+    "docs": "http://jirachi.win/jpub/ ",
+    "download": "https://github.com/PichurChill/jpub/zipball/master",
+    "dependencies": {
+        
+    }
+}
