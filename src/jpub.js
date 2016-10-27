@@ -1,3 +1,4 @@
+// TODO: click 用 one 删除bind
 ;(function($,window,document,undefined){
     "use strict";
     /**
@@ -8,7 +9,7 @@
         this.defaults={
             // 'type':'manual',
             'isScroll':false,
-            'bg':true,
+            // 'bg':true,
             'bg_color':'rgba(0,0,0,0.5)',
             'form_padding_top':'30%',
             'animate_in':0,
@@ -24,12 +25,21 @@
             'hide_pre_param':undefined,
             'hide_after_func':undefined,//hide之后执行方法
             'hide_after_param':undefined,
+            'ok_btn':'.jpub-btn-ok',
+            'cancel_btn':'.jpub-btn-cancel',
+            'ok_func':funcs.testFunc,
+            'cancel_func':funcs.testFunc,
+            'ok_btn_param':undefined,
+            'cancel_btn_param':undefined,
 
         };
-        this.form_info={
-            $w:ele.width(),
-            $h:ele.height(),
-        };
+        if(ele instanceof jQuery){
+            this.form_info={
+                $w:ele.width(),
+                $h:ele.height(),
+            };
+        }
+
         //create方法参数
         this.defaults_2={
             'tag_id':'jpub_auto_form',
@@ -46,9 +56,17 @@
             return this;
         },
         create:function(){
-            var a= "<div class='jpub-' id="+this.options_2.tag_id+">好哈哈哈哈哈</div>";
-            $("body").append(a);
-            return $("#"+this.options_2.tag_id);
+            var str="    <div class=\"jpub-target jpub-div\" id="+this.options_2.tag_id+">";
+                str+="        <div class=\"jpub-main-head\"></div>";
+                str+="        <div class=\"jpub-main-body\"></div>";
+                str+="        <div class=\"jpub-main-foot\">";
+                str+="            <button class=\"jpub-btn jpub-btn-cancel\">取消</button>";
+                str+="            <button class=\"jpub-btn jpub-btn-ok\">确认</button>";
+                str+="        </div>";
+                str+="    </div>";
+
+            $(this.options_2.parent_tag).append(str);
+            return $(this.options_2.parent_tag);
         },
     };
     /**
@@ -56,59 +74,44 @@
      */
     var funcs={
         // 背景层处理
+        testFunc:function(){
+            alert("Please bind functions by adding options:'ok_func',cancel_func' ");
+        },
         showBgDiv:function(jPub){
             var that=this;
-            if (jPub.options.bg===true) {
+            // if (jPub.options.bg===true) {
                 //插入背景层
-                var bgDiv='<div id="jpub-bg">';
-                    bgDiv+='</div>';
-                    bgDiv+='<button class="jpub-close-span">Close</button>';
+            var bgDiv='<div id="jpub-bg">';
+                bgDiv+='</div>';
+                bgDiv+='<button class="jpub-close-span">Close</button>';
 
-                $("html>body:eq(0)").append(bgDiv);
-                // 添加背景层样式
-                var jubBg=$("#jpub-bg");
-                jubBg.addClass('jpub-bg');
-                jubBg.css({
-                    'background-color':jPub.options.bg_color,
-                    // 'opacity':ele.options.bg_op,
-                });
-                //绑定背景层隐藏方法
-                switch (jPub.options.close_mode) {
-                    case 1:
-                        $(".jpub-close-span").remove();
-                        jubBg.click(function(){
-                            that.hide_pre_func(jPub);
-                            that.hide(jPub,jPub.$element,jPub.options.animate_out,false,that.hide_after_func);
-                            that.hide(jPub,$(this),undefined,true);
-                            that.unBindScroll(jPub);
-
-                        });
-                        break;
-                    case 2:
-                        $(".jpub-close-span").click(function(){
-                            that.hide_pre_func(jPub);
-                            that.hide(jPub,jPub.$element,jPub.options.animate_out,false,that.hide_after_func);
-                            that.hide(jPub,$("#jpub-bg"),undefined,true);
-                            $(".jpub-close-span").unbind();
-                            that.hide(jPub,$(this),undefined,true);
-
-                        });
-                        break;
-                    case 3:
-                        $(".jpub-close-span").remove();
-                        $(jPub.options.close_tag).click(function(){
-                            that.hide_pre_func(jPub);
-                            that.hide(jPub,jPub.$element,jPub.options.animate_out,false,that.hide_after_func);
-                            that.hide(jPub,$("#jpub-bg"),undefined,true);
-                            $(jPub.options.close_tag).unbind();
-                        });
+            $("html>body:eq(0)").append(bgDiv);
+            // 添加背景层样式
+            var jubBg=$("#jpub-bg");
+            jubBg.addClass('jpub-bg');
+            jubBg.css({
+                'background-color':jPub.options.bg_color,
+                // 'opacity':ele.options.bg_op,
+            });
+            //绑定背景层隐藏方法
+            switch (jPub.options.close_mode) {
+                case 1:
+                    that.bindHideTag(jPub,"#jpub-bg");
                     break;
+                case 2:
+                    that.bindHideTag(jPub,".jpub-close-span");
+                    break;
+                case 3:
+                    that.bindHideTag(jPub,jPub.options.close_tag);
+                    break;
+                default:
 
-                }
-                that.isScroll(jPub);
-                //渐入
-                jubBg.fadeIn();
             }
+            that.bindBtn(jPub);
+            that.isScroll(jPub);
+            //渐入
+            jubBg.fadeIn();
+            // }
             return jPub;
         },
         /**
@@ -133,6 +136,52 @@
             });
             that.animate_in(jPub,jPub.$element,jPub.options.animate_in,that.show_after_func);
             return jPub;
+        },
+        /**
+         * 绑定隐藏弹出层的selector
+         */
+        bindHideTag:function(jPub,tag){
+            var that=this;
+            if(tag!=".jpub-close-span"){
+                $(".jpub-close-span").remove();
+            }
+            $(tag).click(function(){
+                that.hide_pre_func(jPub);
+                that.hide(jPub,jPub.$element,jPub.options.animate_out,false,that.hide_after_func);
+                that.hide(jPub,$("#jpub-bg"),undefined,true);
+                that.unBindScroll(jPub);
+                $(this).unbind();
+                if(tag==".jpub-close-span"){
+                    that.hide(jPub,$(this),undefined,true);
+                }
+                that.unbindBtn(jPub);//解绑ok cancel
+            });
+        },
+        /**
+         * 绑定确定，取消按钮
+         * TODO 解绑！！！！！！！
+         */
+        bindBtn:function(jPub){
+            var that=this;
+            if (jPub.options.ok_btn!==undefined) {
+                $(jPub.options.ok_btn).click(function(){
+                    jPub.options.ok_func(jPub.options.ok_btn_param);
+                });
+            }
+            if (jPub.options.cancel_btn!==undefined) {
+                that.bindHideTag(jPub,jPub.options.cancel_btn);
+                // $(jPub.options.cancel_btn).click(function(){
+                //     jPub.options.cancel_func();
+                // });
+            }
+        },
+        unbindBtn:function(jPub){
+            if (jPub.options.ok_btn!==undefined) {
+                $(jPub.options.ok_btn).unbind();
+            }
+            if (jPub.options.cancel_btn!==undefined) {
+                $(jPub.options.cancel_btn).unbind();
+            }
         },
         isScroll:function(jPub){
             // TODO: 电脑端
@@ -165,6 +214,7 @@
                     $ele.animate({
                         'width':jPub.form_info.$w,
                         'height':jPub.form_info.$h,
+                        // 'top':jPub.form_info.$h/10
                     },function(){
                         callBackFn(jPub);
                     });

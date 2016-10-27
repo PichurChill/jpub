@@ -36,7 +36,7 @@ $(".jpub-div").jShow({
 |id| name | description | default |value|require id|
 |-------------| ------------- |:-----------:| -----:| -----:| -----:|
 |1| isScroll | - | false |true/false|-|
-|2| bg | background div |true |true/false|-|
+|2|~~bg~~| ~~background div~~ |~~true~~ |~~true/false~~|-|
 |3|bg_color | background div color| 'rgba(0,0,0,0.5)'|'rgba(x,x,x,x)'|2|
 |4|animate_in|animate-in-direction:<br>1:↓、2:←、3:↑、4:→|3|1/2/3/4|-|
 |5|animate_out|animate-out-direction:<br>1:↑、2:→、3:↓、4:←|0|0/1/2/3/4|-|
@@ -55,12 +55,16 @@ $(".jpub-div").jShow({
 *create automatically generated PopUpBox*
 
 ```js
-$.jCreateForm({
-    'tag_id':'hahaha'
-}).jShow({
-    'animate_in':3,
-    'animate_out':3,
+$(function(){
+    $.jCreateForm({
+        'tag_id':'hahaha',
+        'parent_tag':'body'
+    });
 });
+$(".btn").click(){
+    $("#hahaha").jShow();
+}
+
 ```
 ### Parameters
 |id| name | description | default |value|require id|
