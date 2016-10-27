@@ -243,3 +243,15 @@ a {
 @media screen and (max-width: 42em) {
   .site-footer {
     font-size: 0.9rem; } }
+#jpub-demo{
+
+}
+#show_2{
+    font-weight: bold;
+    border: none;
+    background-color: #fff;
+    color: #4A48DF;
+    box-shadow: 0 0 2px #D5A9A9;
+    border-radius: 3px;
+    outline: none
+}
