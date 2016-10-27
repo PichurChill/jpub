@@ -139,7 +139,7 @@ div,p{
     height: 30%;
     background-color: #fff;
     text-align: center;
-    line-height: 4.5rem;
+    /*line-height: 4.5rem;*/
     border-radius: 6px;
 }
 .jpub-btn{
@@ -151,6 +151,7 @@ div,p{
     font-weight: bold;
     font-size: 1.4rem;
     outline: none;
+    margin-top: 0.4rem;
 
 }
 .jpub-btn-ok{
