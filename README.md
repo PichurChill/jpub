@@ -40,7 +40,7 @@ $(".jpub-div").jShow({
 |3|bg_color | background div color| 'rgba(0,0,0,0.5)'|'rgba(x,x,x,x)'|2|
 |4|animate_in|animate-in-direction:<br>1:↓、2:←、3:↑、4:→|3|1/2/3/4|-|
 |5|animate_out|animate-out-direction:<br>1:↑、2:→、3:↓、4:←|0|0/1/2/3/4|-|
-|6|close_mode|1-click the background div to hide<br>2-create a tag to hide<br>3-specify a html tag to hide|1|1/2/3|-|
+|6|**close_mode**|1-click the background div to hide<br>2-create a tag to hide<br>3-specify a html tag to hide|1|1/2/3|-|
 |7|close_tag|the specified html tag|undefined|'#demo'/'.example'/...|6|
 |8|show_pre_func|the function run before the div show|undefined|obj.func/funcName()/function(){alert()}|-|
 |9|show_after_func|the function run after the div show|undefined|obj.func/funcName()/function(){alert()}|-|
@@ -50,8 +50,12 @@ $(".jpub-div").jShow({
 |13|show_after_param|the parameter of show_after_func |undefined|Any|9|
 |14|hide_pre_param|the parameter of hide_pre_param |undefined|Any|10|
 |15|hide_after_param|the parameter of hide_after_func |undefined|Any|11|
+|16|**ok_btn**|the attribute name of the "ok" button |.jpub-btn-ok|'.btn_1'/'#btn_1'|-|
+|17|**cancel_btn**|the attribute name of the "cancel" button |.jpub-btn-cancel|'.btn_2'/'#btn_2'|-|
+|18|**ok_func**|the onclick function of the "ok" button  |funcs.testFunc(an "alert" function)|type of function|11|
+|19|ok_btn_param|the parameter of ok_func |undefined|Any|18|
 
-### 2、 `$.jCreateForm().jShow();`（TODO）
+### 2、 `$.jCreateForm().jShow();`（TODO:More Themes）
 *create automatically generated PopUpBox*
 
 ```js
@@ -71,3 +75,6 @@ $(".btn").click(){
 |-------------| ------------- |:-----------:| -----:| -----:| -----:|
 |1| tag_id | the PopUpBox's tag id you want name  | jpub_auto_form |-|-|
 |2|parent_tag|the parent tag you want to append|'body'|'#demo'/'.class:eq(x)'|-|
+|3|ok_text|the text of the "ok" button|'Ok'|Any word|-|
+|4|cancel_text|the text of the "cancel" button|'Cancel'|Any word|-|
+|5|content|the Information you want to show in the PopUpBox|'Information you want to show'|Any Html tag|-|

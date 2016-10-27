@@ -8,3 +8,8 @@
 .test-main{
     width: 100%;
 }
+#div2{
+    width: 50%;
+    border: 1px solid blue;
+    height: 300px;
+}

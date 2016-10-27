@@ -28,9 +28,9 @@
             'ok_btn':'.jpub-btn-ok',
             'cancel_btn':'.jpub-btn-cancel',
             'ok_func':funcs.testFunc,
-            'cancel_func':funcs.testFunc,
+            // 'cancel_func':funcs.testFunc,
             'ok_btn_param':undefined,
-            'cancel_btn_param':undefined,
+            // 'cancel_btn_param':undefined,
 
         };
         if(ele instanceof jQuery){
