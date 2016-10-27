@@ -1,58 +1,10 @@
 /*html{
     font-size: 62.5%;
 }*/
-div,p{
+/*div,p{
     margin: 0;
     padding: 0;
-}
+}*/
 .test-main{
     width: 100%;
-}
-.jpub-target{
-    margin: 0 auto;
-    height: 15rem;
-    width: 20rem;
-    max-height: 40%;
-    max-width: 90%;
-    background-color: #eee;
-    box-shadow: 0 0 0.2rem #666;
-    border-radius: 6px;
-
-}
-.jpub-main-head{
-    width: 100%;
-    height: 20%;
-    background-color: #fff;
-    border-radius: 6px 6px 0 0;
-}
-.jpub-main-body{
-    width: 100%;
-    height: 50%;
-    border-bottom: 1px solid #fff;
-}
-.jpub-main-foot{
-    width: 100%;
-    height: 30%;
-    background-color: #fff;
-    text-align: center;
-    line-height: 4.5rem;
-    border-radius: 6px;
-}
-.jpub-btn{
-    border-radius: 3px;
-    border: none;
-    color: #fff;
-    height: 80%;
-    width: 46%;
-    font-weight: bold;
-    font-size: 1.4rem;
-    outline: none;
-
-}
-.jpub-btn-ok{
-    background-color: #bd081c;
-}
-.jpub-btn-cancel{
-    background-color: #555;
-
 }

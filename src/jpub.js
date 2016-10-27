@@ -44,6 +44,9 @@
         this.defaults_2={
             'tag_id':'jpub_auto_form',
             'parent_tag':'body',
+            'ok_text':'Ok',
+            'cancel_text':'Cancel',
+            'content':'Information you want to show'
         };
         this.options = $.extend({},this.defaults, opt);
         this.options_2 = $.extend({},this.defaults_2, opt);
@@ -58,10 +61,10 @@
         create:function(){
             var str="    <div class=\"jpub-target jpub-div\" id="+this.options_2.tag_id+">";
                 str+="        <div class=\"jpub-main-head\"></div>";
-                str+="        <div class=\"jpub-main-body\"></div>";
+                str+="        <div class=\"jpub-main-body\">"+this.options_2.content+"</div>";
                 str+="        <div class=\"jpub-main-foot\">";
-                str+="            <button class=\"jpub-btn jpub-btn-cancel\">取消</button>";
-                str+="            <button class=\"jpub-btn jpub-btn-ok\">确认</button>";
+                str+="            <button class=\"jpub-btn jpub-btn-cancel\">"+this.options_2.cancel_text+"</button>";
+                str+="            <button class=\"jpub-btn jpub-btn-ok\">"+this.options_2.ok_text+"</button>";
                 str+="        </div>";
                 str+="    </div>";
 
@@ -127,15 +130,35 @@
         },
         showForm:function(jPub){
             var that=this;
-            jPub.$element.css({
-                'display':'block',
-                'position':'fixed',
-                'top':'100%',
-                'left':'0',
-                'z-index':2014,
-            });
+            // jPub.$element.css({
+            //     'display':'block',
+            //     'position':'fixed',
+            //     'top':'100%',
+            //     'left':'0',
+            //     'z-index':2014,
+            // });
+            jPub.$element.addClass('jpub-form');
             that.animate_in(jPub,jPub.$element,jPub.options.animate_in,that.show_after_func);
             return jPub;
+        },
+
+        /**
+         * 绑定确定，取消按钮
+         *
+         */
+        bindBtn:function(jPub){
+            var that=this;
+            if (jPub.options.ok_btn!==undefined) {
+                $(jPub.options.ok_btn).click(function(){
+                    jPub.options.ok_func(jPub.options.ok_btn_param);
+                });
+            }
+            if (jPub.options.cancel_btn!==undefined) {
+                that.bindHideTag(jPub,jPub.options.cancel_btn);
+                // $(jPub.options.cancel_btn).click(function(){
+                //     jPub.options.cancel_func();
+                // });
+            }
         },
         /**
          * 绑定隐藏弹出层的selector
@@ -156,24 +179,6 @@
                 }
                 that.unbindBtn(jPub);//解绑ok cancel
             });
-        },
-        /**
-         * 绑定确定，取消按钮
-         * TODO 解绑！！！！！！！
-         */
-        bindBtn:function(jPub){
-            var that=this;
-            if (jPub.options.ok_btn!==undefined) {
-                $(jPub.options.ok_btn).click(function(){
-                    jPub.options.ok_func(jPub.options.ok_btn_param);
-                });
-            }
-            if (jPub.options.cancel_btn!==undefined) {
-                that.bindHideTag(jPub,jPub.options.cancel_btn);
-                // $(jPub.options.cancel_btn).click(function(){
-                //     jPub.options.cancel_func();
-                // });
-            }
         },
         unbindBtn:function(jPub){
             if (jPub.options.ok_btn!==undefined) {
@@ -202,6 +207,10 @@
          */
         animate_in:function(jPub,$ele,mode,callBackFn){
             // TODO: 动画 从中间展开
+            var length='';//左右移动距离
+            $ele.css({
+                'display':'block'
+            });
             switch (mode) {
                 case 0:
                     $ele.addClass('jpub-center1');
@@ -231,13 +240,16 @@
                     });
                     break;
                 case 2:
-                    $ele.addClass('jpub-center2');
+                    // $ele.addClass('jpub-center2');
                     $ele.css({
                         'top':jPub.options.form_padding_top,
-                        'left':'100%'
+                        // 'left':'100%'
+                        'left':$(document).width()
                     });
+                    length=$(document).width()/2-$ele.width()/2;
                     $ele.animate({
-                        'left':'50%',
+                        // 'left':'50%',
+                        'left':length,
                     },function(){
                         callBackFn(jPub);
                     });
@@ -254,13 +266,15 @@
                     });
                     break;
                 case 4:
-                    $ele.addClass('jpub-center2');
+                    // $ele.addClass('jpub-center2');
                     $ele.css({
                         'top':jPub.options.form_padding_top,
                         'left':'-100%'
                     });
+                    length=$(document).width()/2-$ele.width()/2;
+
                     $ele.animate({
-                        'left':'50%',
+                        'left':length,
                     },function(){
                         callBackFn(jPub);
                     });
@@ -286,10 +300,11 @@
          * callBackFn回调函数
          */
         animate_out:function(jPub,$ele,mode,isDel,callBackFn){
+            var length=$(document).width();
             switch (mode) {
                 case 0:
                     $ele.animate({
-                        // 'top':'-100%',
+                        // 'top':'-100%',//nice
                         'width':'0',
                         'height':'0',
                     },function(){
@@ -304,7 +319,7 @@
                     break;
                 case 1:
                     $ele.animate({
-                        'top':'-100%',
+                        'top':'-110%',
                     },function(){
                         var a=isDel===true?$ele.remove():'';
                             a=callBackFn===undefined?'':callBackFn(jPub);
@@ -312,7 +327,7 @@
                     break;
                 case 2:
                     $ele.animate({
-                        'left':'100%',
+                        'left':'110%',
                     },function(){
                         var a=isDel===true?$ele.remove():'';
                         a=callBackFn===undefined?'':callBackFn(jPub);
@@ -320,7 +335,7 @@
                     break;
                 case 3:
                     $ele.animate({
-                        'top':'100%',
+                        'top':'110%',
                     },function(){
                         var a=isDel===true?$ele.remove():'';
                         a=callBackFn===undefined?'':callBackFn(jPub);
@@ -328,7 +343,7 @@
                     break;
                 case 4:
                     $ele.animate({
-                        'left':'-100%',
+                        'left':'-110%',
                     },function(){
                         var a=isDel===true?$ele.remove():'';
                         a=callBackFn===undefined?'':callBackFn(jPub);
