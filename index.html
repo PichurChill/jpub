@@ -33,19 +33,17 @@
 <h3>
 <a id="1tryautomatically-generate-a-popupbox" class="anchor" href="#1tryautomatically-generate-a-popupbox" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1、Try:automatically generate a PopUpBox</h3>
 
-<pre><code>$(function(){
-    var str="&lt;p&gt;This is a popupbox automatically generated&lt;/p&gt;";
-    $.jCreateForm({
-        'tag_id':'hahaha',
-        'content':str,
-
+<div class="highlight highlight-source-js"><pre><span class="pl-en">$</span>(<span class="pl-k">function</span>(){
+    <span class="pl-k">var</span> str<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>&lt;p&gt;This is a popupbox automatically generated&lt;/p&gt;<span class="pl-pds">"</span></span>;
+    <span class="pl-smi">$</span>.<span class="pl-en">jCreateForm</span>({
+        <span class="pl-s"><span class="pl-pds">'</span>tag_id<span class="pl-pds">'</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>hahaha<span class="pl-pds">'</span></span>,
+        <span class="pl-s"><span class="pl-pds">'</span>content<span class="pl-pds">'</span></span><span class="pl-k">:</span>str,
     });
-    $("#show_2").click(function(){
-        $("#hahaha").jShow({
+    <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">"</span>#show_2<span class="pl-pds">"</span></span>).<span class="pl-c1">click</span>(<span class="pl-k">function</span>(){
+        <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">"</span>#hahaha<span class="pl-pds">"</span></span>).<span class="pl-en">jShow</span>({
         });
     });
-});
-</code></pre>
+});</pre></div>
 
 <h3>
 <a id="2trythe-target-popupbox-has-been-in-the-html" class="anchor" href="#2trythe-target-popupbox-has-been-in-the-html" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2、Try:the target PopUpBox has been in the html</h3>
