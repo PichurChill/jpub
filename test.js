@@ -4,17 +4,16 @@ $(function(){
     var str="<p>This is a popupbox automatically generated</p>";
     $.jCreateForm({
         'tag_id':'hahaha',
-        // 'parent_tag':'#div2',
         'content':str,
 
     });
     // 按钮1
-    $("#show_1").click(function(){
-
-        $("#form_1").jShow(jpub_options);
-    });
+    // $("#show_1").click(function(){
+    //
+    //     $("#form_1").jShow(jpub_options);
+    // });
     // 按钮2
-    $("#show_2").click(function(){
+    $("#show_1").click(function(){
         $("#hahaha").jShow({
         });
     });
