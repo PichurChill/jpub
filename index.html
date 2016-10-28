@@ -8,13 +8,8 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="dist/jpub.min.css" />
-    <script src="dist/jquery-3.0.0.min.js"></script>
-    <script src="dist/jpub.min.js"></script>
-    <script src="test.js"></script>
   </head>
   <body>
-
     <section class="page-header">
       <h1 class="project-name">jpub</h1>
       <h2 class="project-tagline">A jQuery plugin to make a PopUpBox easier.</h2>
@@ -24,7 +19,6 @@
     </section>
 
     <section class="main-content">
-
       <h2>
 <a id="" class="anchor" href="#" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://badge.fury.io/js/jpub"><img src="https://badge.fury.io/js/jpub.png" alt="npm version"></a>
 </h2>
@@ -36,12 +30,30 @@
 <h1>
 <a id="demo" class="anchor" href="#demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo</h1>
 
-<section id="jpub-demo">
-    <button id="show_2">1、Try:automatically generate a form</button>
-
-</section>
 <h3>
-<a  class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>more demo coming soon...</h3>
+<a id="1tryautomatically-generate-a-popupbox" class="anchor" href="#1tryautomatically-generate-a-popupbox" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1、Try:automatically generate a PopUpBox</h3>
+
+<pre><code>$(function(){
+    var str="&lt;p&gt;This is a popupbox automatically generated&lt;/p&gt;";
+    $.jCreateForm({
+        'tag_id':'hahaha',
+        'content':str,
+
+    });
+    $("#show_2").click(function(){
+        $("#hahaha").jShow({
+        });
+    });
+});
+</code></pre>
+
+<h3>
+<a id="2trythe-target-popupbox-has-been-in-the-html" class="anchor" href="#2trythe-target-popupbox-has-been-in-the-html" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2、Try:the target PopUpBox has been in the html</h3>
+
+<h2>
+<a id="more-demo-coming-soon" class="anchor" href="#more-demo-coming-soon" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><em>more demo coming soon...</em>
+</h2>
+
 <h1>
 <a id="function-list" class="anchor" href="#function-list" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function List</h1>
 
@@ -281,6 +293,6 @@
 
     </section>
 
-
+  
   </body>
 </html>
