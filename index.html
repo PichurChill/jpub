@@ -8,10 +8,6 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="dist/jpub.min.css" />
-    <script src="dist/jquery-3.0.0.min.js"></script>
-    <script src="dist/jpub.min.js"></script>
-    <script src="test.js"></script>
   </head>
   <body>
     <section class="page-header">
@@ -34,8 +30,8 @@
 <h1>
 <a id="demo" class="anchor" href="#demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo</h1>
 
-<h3 id="show_1">
-<a id="1tryautomatically-generate-a-popupbox" class="anchor" href="#1tryautomatically-generate-a-popupbox" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Click: automatically generate a PopUpBox</h3>
+<h3>
+<a id="1tryautomatically-generate-a-popupbox" class="anchor" href="#1tryautomatically-generate-a-popupbox" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1、Try:automatically generate a PopUpBox</h3>
 
 <div class="highlight highlight-source-js"><pre><span class="pl-en">$</span>(<span class="pl-k">function</span>(){
     <span class="pl-k">var</span> str<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>&lt;p&gt;This is a popupbox automatically generated&lt;/p&gt;<span class="pl-pds">"</span></span>;
@@ -56,237 +52,6 @@
 <a id="more-demo-coming-soon" class="anchor" href="#more-demo-coming-soon" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><em>more demo coming soon...</em>
 </h2>
 
-<h1>
-<a id="function-list" class="anchor" href="#function-list" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function List</h1>
-
-<table>
-<thead>
-<tr>
-<th>id</th>
-<th align="left">name</th>
-<th align="left">description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td align="left"><code>$(Selecoter).jShow()</code></td>
-<td align="left">the target PopUpBox  has been in the html</td>
-</tr>
-<tr>
-<td>2</td>
-<td align="left"><code>$.jCreateForm()</code></td>
-<td align="left">create automatically generated PopUpBox</td>
-</tr>
-</tbody>
-</table>
-
-<h1>
-<a id="use" class="anchor" href="#use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>use</h1>
-
-<h3>
-<a id="1-selecoterjshow" class="anchor" href="#1-selecoterjshow" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1、 <code>$(Selecoter).jShow();</code>
-</h3>
-
-<p><em>the target PopUpBox  has been in the html</em></p>
-
-<div class="highlight highlight-source-js"><pre><span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">"</span>.jpub-div<span class="pl-pds">"</span></span>).<span class="pl-en">jShow</span>({
-    <span class="pl-s"><span class="pl-pds">'</span>close_mode<span class="pl-pds">'</span></span><span class="pl-k">:</span><span class="pl-c1">2</span>,
-    <span class="pl-s"><span class="pl-pds">'</span>form_padding_top<span class="pl-pds">'</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>30px<span class="pl-pds">'</span></span>,
-    <span class="pl-s"><span class="pl-pds">'</span>animate_in<span class="pl-pds">'</span></span><span class="pl-k">:</span><span class="pl-c1">1</span>,
-    <span class="pl-s"><span class="pl-pds">'</span>animate_out<span class="pl-pds">'</span></span><span class="pl-k">:</span><span class="pl-c1">1</span>,
-    <span class="pl-s"><span class="pl-pds">'</span>show_pre_func<span class="pl-pds">'</span></span><span class="pl-k">:</span><span class="pl-smi">test</span>.<span class="pl-smi">abc</span>,
-    <span class="pl-s"><span class="pl-pds">'</span>show_pre_param<span class="pl-pds">'</span></span><span class="pl-k">:</span><span class="pl-smi">test</span>.<span class="pl-smi">param</span>,
-    <span class="pl-s"><span class="pl-pds">'</span><span class="pl-en">show_after_func</span><span class="pl-pds">'</span></span><span class="pl-k">:</span><span class="pl-k">function</span>(){
-            <span class="pl-en">alert</span>(<span class="pl-s"><span class="pl-pds">'</span>show_after<span class="pl-pds">'</span></span>);
-        },
-
-});</pre></div>
-
-<h3>
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
-
-<table>
-<thead>
-<tr>
-<th>id</th>
-<th>name</th>
-<th align="center">description</th>
-<th align="right">default</th>
-<th align="right">value</th>
-<th align="right">require id</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>isScroll</td>
-<td align="center">-</td>
-<td align="right">false</td>
-<td align="right">true/false</td>
-<td align="right">-</td>
-</tr>
-<tr>
-<td>2</td>
-<td>bg</td>
-<td align="center">background div</td>
-<td align="right">true</td>
-<td align="right">true/false</td>
-<td align="right">-</td>
-</tr>
-<tr>
-<td>3</td>
-<td>bg_color</td>
-<td align="center">background div color</td>
-<td align="right">'rgba(0,0,0,0.5)'</td>
-<td align="right">'rgba(x,x,x,x)'</td>
-<td align="right">2</td>
-</tr>
-<tr>
-<td>4</td>
-<td>animate_in</td>
-<td align="center">animate-in-direction:<br>1:↓、2:←、3:↑、4:→</td>
-<td align="right">3</td>
-<td align="right">1/2/3/4</td>
-<td align="right">-</td>
-</tr>
-<tr>
-<td>5</td>
-<td>animate_out</td>
-<td align="center">animate-out-direction:<br>1:↑、2:→、3:↓、4:←</td>
-<td align="right">0</td>
-<td align="right">0/1/2/3/4</td>
-<td align="right">-</td>
-</tr>
-<tr>
-<td>6</td>
-<td>close_mode</td>
-<td align="center">1-click the background div to hide<br>2-create a tag to hide<br>3-specify a html tag to hide</td>
-<td align="right">1</td>
-<td align="right">1/2/3</td>
-<td align="right">-</td>
-</tr>
-<tr>
-<td>7</td>
-<td>close_tag</td>
-<td align="center">the specified html tag</td>
-<td align="right">undefined</td>
-<td align="right">'#demo'/'.example'/...</td>
-<td align="right">6</td>
-</tr>
-<tr>
-<td>8</td>
-<td>show_pre_func</td>
-<td align="center">the function run before the div show</td>
-<td align="right">undefined</td>
-<td align="right">obj.func/funcName()/function(){alert()}</td>
-<td align="right">-</td>
-</tr>
-<tr>
-<td>9</td>
-<td>show_after_func</td>
-<td align="center">the function run after the div show</td>
-<td align="right">undefined</td>
-<td align="right">obj.func/funcName()/function(){alert()}</td>
-<td align="right">-</td>
-</tr>
-<tr>
-<td>10</td>
-<td>hide_pre_param</td>
-<td align="center">the function run before the div hide</td>
-<td align="right">undefined</td>
-<td align="right">obj.func/funcName()/function(){alert()}</td>
-<td align="right">-</td>
-</tr>
-<tr>
-<td>11</td>
-<td>hide_after_func</td>
-<td align="center">the function run after the div hide</td>
-<td align="right">undefined</td>
-<td align="right">obj.func/funcName()/function(){alert()}</td>
-<td align="right">-</td>
-</tr>
-<tr>
-<td>12</td>
-<td>show_pre_param</td>
-<td align="center">the parameter of show_pre_func</td>
-<td align="right">undefined</td>
-<td align="right">Any</td>
-<td align="right">8</td>
-</tr>
-<tr>
-<td>13</td>
-<td>show_after_param</td>
-<td align="center">the parameter of show_after_func</td>
-<td align="right">undefined</td>
-<td align="right">Any</td>
-<td align="right">9</td>
-</tr>
-<tr>
-<td>14</td>
-<td>hide_pre_param</td>
-<td align="center">the parameter of hide_pre_param</td>
-<td align="right">undefined</td>
-<td align="right">Any</td>
-<td align="right">10</td>
-</tr>
-<tr>
-<td>15</td>
-<td>hide_after_param</td>
-<td align="center">the parameter of hide_after_func</td>
-<td align="right">undefined</td>
-<td align="right">Any</td>
-<td align="right">11</td>
-</tr>
-</tbody>
-</table>
-
-<h3>
-<a id="2-jcreateformjshowtodo" class="anchor" href="#2-jcreateformjshowtodo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2、 <code>$.jCreateForm().jShow();</code>（TODO）</h3>
-
-<p><em>create automatically generated PopUpBox</em></p>
-
-<div class="highlight highlight-source-js"><pre><span class="pl-smi">$</span>.<span class="pl-en">jCreateForm</span>({
-    <span class="pl-s"><span class="pl-pds">'</span>tag_id<span class="pl-pds">'</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>hahaha<span class="pl-pds">'</span></span>
-}).<span class="pl-en">jShow</span>({
-    <span class="pl-s"><span class="pl-pds">'</span>animate_in<span class="pl-pds">'</span></span><span class="pl-k">:</span><span class="pl-c1">3</span>,
-    <span class="pl-s"><span class="pl-pds">'</span>animate_out<span class="pl-pds">'</span></span><span class="pl-k">:</span><span class="pl-c1">3</span>,
-});</pre></div>
-
-<h3>
-<a id="parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
-
-<table>
-<thead>
-<tr>
-<th>id</th>
-<th>name</th>
-<th align="center">description</th>
-<th align="right">default</th>
-<th align="right">value</th>
-<th align="right">require id</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>tag_id</td>
-<td align="center">the PopUpBox's tag id you want name</td>
-<td align="right">jpub_auto_form</td>
-<td align="right">-</td>
-<td align="right">-</td>
-</tr>
-<tr>
-<td>2</td>
-<td>parent_tag</td>
-<td align="center">the parent tag you want to append</td>
-<td align="right">'body'</td>
-<td align="right">'#demo'/'.class:eq(x)'</td>
-<td align="right">-</td>
-</tr>
-</tbody>
-</table>
-
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/PichurChill/jpub">jpub</a> is maintained by <a href="https://github.com/PichurChill">PichurChill</a>.</span>
 
@@ -295,6 +60,6 @@
 
     </section>
 
-
+  
   </body>
 </html>
