@@ -53,7 +53,7 @@ $(".jpub-div").jShow({
 |16|**ok_btn**|the attribute name of the "ok" button |.jpub-btn-ok|'.btn_1'/'#btn_1'|-|
 |17|**cancel_btn**|the attribute name of the "cancel" button |.jpub-btn-cancel|'.btn_2'/'#btn_2'|-|
 |18|**ok_func**|the onclick function of the "ok" button  |funcs.testFunc(an "alert" function)|type of function|11|
-|19|ok_btn_param|the parameter of ok_func |undefined|Any|18|
+|19|**ok_func_param**|the parameter of ok_func |undefined|Any|18|
 
 ### 2、 `$.jCreateForm().jShow();`（TODO:More Themes）
 *create automatically generated PopUpBox*

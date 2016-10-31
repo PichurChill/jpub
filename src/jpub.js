@@ -29,8 +29,8 @@
             'cancel_btn':'.jpub-btn-cancel',
             'ok_func':funcs.testFunc,
             // 'cancel_func':funcs.testFunc,
-            'ok_btn_param':undefined,
-            // 'cancel_btn_param':undefined,
+            'ok_func_param':undefined,
+            // 'cancel_func_param':undefined,
 
         };
         if(ele instanceof jQuery){
@@ -150,7 +150,7 @@
             var that=this;
             if (jPub.options.ok_btn!==undefined) {
                 $(jPub.options.ok_btn).click(function(){
-                    jPub.options.ok_func(jPub.options.ok_btn_param);
+                    jPub.options.ok_func(jPub.options.ok_func_param);
                 });
             }
             if (jPub.options.cancel_btn!==undefined) {
