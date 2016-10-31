@@ -1,3 +1,7 @@
+// <link rel="stylesheet" type="text/css" href="dist/jpub.min.css">
+// <script src="dist/jquery-3.0.0.min.js"></script>
+// <script src="dist/jpub.min.js"></script>
+// <script src="test.js"></script>
 var a=123567;
 
 $(function(){
@@ -5,7 +9,6 @@ $(function(){
     $.jCreateForm({
         'tag_id':'hahaha',
         'content':str,
-
     });
     // 按钮1
     // $("#show_1").click(function(){
@@ -13,8 +16,12 @@ $(function(){
     //     $("#form_1").jShow(jpub_options);
     // });
     // 按钮2
-    $("#show_1").click(function(){
+    $("#click_1").click(function(){
         $("#hahaha").jShow({
+            'ok_func':function(p){
+                alert(p);
+            },
+            'ok_func_param':"Hello,Jin"
         });
     });
 
