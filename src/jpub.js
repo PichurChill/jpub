@@ -1,4 +1,3 @@
-// TODO: click 用 one 删除bind
 ;(function($,window,document,undefined){
     "use strict";
     /**
@@ -44,7 +43,7 @@
         this.defaults_2={
             'tag_id':'jpub_auto_form',
             'parent_tag':'body',
-            'ok_text':'Ok',
+            'ok_text':'OK',
             'cancel_text':'Cancel',
             'content':'Information you want to show'
         };
@@ -53,14 +52,14 @@
     };
     jPub.prototype =  {
         show:function(){
-            funcs.show_pre_func(this);
+            funcs.showPreFunc(this);
             funcs.showBgDiv(this);
             funcs.showForm(this);
             return this;
         },
         create:function(){
             var str="    <div class=\"jpub-target jpub-div\" id="+this.options_2.tag_id+">";
-                str+="        <div class=\"jpub-main-head\"></div>";
+                str+="        <div class=\"jpub-main-head\"><p class=\"jpub-main-head-p\">Notice</p></div>";
                 str+="        <div class=\"jpub-main-body\">"+this.options_2.content+"</div>";
                 str+="        <div class=\"jpub-main-foot\">";
                 str+="            <button class=\"jpub-btn jpub-btn-cancel\">"+this.options_2.cancel_text+"</button>";
@@ -73,7 +72,7 @@
         },
     };
     /**
-     * 处理方法
+     * 主方法
      */
     var funcs={
         // 背景层处理
@@ -81,7 +80,6 @@
             alert("Please bind functions by adding options:'ok_func',cancel_func' ");
         },
         showBgDiv:function(jPub){
-            var that=this;
             // if (jPub.options.bg===true) {
                 //插入背景层
             var bgDiv='<div id="jpub-bg">';
@@ -99,19 +97,19 @@
             //绑定背景层隐藏方法
             switch (jPub.options.close_mode) {
                 case 1:
-                    that.bindHideTag(jPub,"#jpub-bg");
+                    handleFuncs.bindHideTag(jPub,"#jpub-bg");
                     break;
                 case 2:
-                    that.bindHideTag(jPub,".jpub-close-span");
+                    handleFuncs.bindHideTag(jPub,".jpub-close-span");
                     break;
                 case 3:
-                    that.bindHideTag(jPub,jPub.options.close_tag);
+                    handleFuncs.bindHideTag(jPub,jPub.options.close_tag);
                     break;
                 default:
 
             }
-            that.bindBtn(jPub);
-            that.isScroll(jPub);
+            handleFuncs.bindBtn(jPub);
+            handleFuncs.isScroll(jPub);
             //渐入
             jubBg.fadeIn();
             // }
@@ -125,7 +123,7 @@
          * callBackFn 回调函数
          */
         hide:function(jPub,$ele,mode,isDel,callBackFn){
-            this.animate_out(jPub,$ele,mode,isDel,callBackFn);
+            handleFuncs.animateOut(jPub,$ele,mode,isDel,callBackFn);
             return $ele;
         },
         showForm:function(jPub){
@@ -138,74 +136,42 @@
             //     'z-index':2014,
             // });
             jPub.$element.addClass('jpub-form');
-            that.animate_in(jPub,jPub.$element,jPub.options.animate_in,that.show_after_func);
+            handleFuncs.animateIn(jPub,jPub.$element,jPub.options.animate_in,that.showAfterFunc);
             return jPub;
         },
-
-        /**
-         * 绑定确定，取消按钮
-         *
-         */
-        bindBtn:function(jPub){
-            var that=this;
-            if (jPub.options.ok_btn!==undefined) {
-                $(jPub.options.ok_btn).click(function(){
-                    jPub.options.ok_func(jPub.options.ok_func_param);
-                });
-            }
-            if (jPub.options.cancel_btn!==undefined) {
-                that.bindHideTag(jPub,jPub.options.cancel_btn);
-                // $(jPub.options.cancel_btn).click(function(){
-                //     jPub.options.cancel_func();
-                // });
+        showPreFunc:function(jPub){
+            // var fn = window[jPub.options.show_pre_func];
+            var fn = jPub.options.show_pre_func;
+                if(typeof fn === 'function') {
+                    fn(jPub.options.show_pre_param);
             }
         },
-        /**
-         * 绑定隐藏弹出层的selector
-         */
-        bindHideTag:function(jPub,tag){
-            var that=this;
-            if(tag!=".jpub-close-span"){
-                $(".jpub-close-span").remove();
-            }
-            $(tag).click(function(){
-                that.hide_pre_func(jPub);
-                that.hide(jPub,jPub.$element,jPub.options.animate_out,false,that.hide_after_func);
-                that.hide(jPub,$("#jpub-bg"),undefined,true);
-                that.unBindScroll(jPub);
-                $(this).unbind();
-                if(tag==".jpub-close-span"){
-                    that.hide(jPub,$(this),undefined,true);
-                }
-                that.unbindBtn(jPub);//解绑ok cancel
-            });
-        },
-        unbindBtn:function(jPub){
-            if (jPub.options.ok_btn!==undefined) {
-                $(jPub.options.ok_btn).unbind();
-            }
-            if (jPub.options.cancel_btn!==undefined) {
-                $(jPub.options.cancel_btn).unbind();
+        showAfterFunc:function(jPub){
+            var fn = jPub.options.show_after_func;
+                if(typeof fn === 'function') {
+                    fn(jPub.options.show_after_param);
             }
         },
-        isScroll:function(jPub){
-            // TODO: 电脑端
-            if(jPub.options.isScroll===false){
-                $("body").bind("touchmove",function(event){
-                    event.preventDefault();
-                    // $("body").unbind("touchmove");
-                });
+        hidePreFunc:function(jPub){
+            var fn = jPub.options.hide_pre_func;
+                if(typeof fn === 'function') {
+                    fn(jPub.options.hide_pre_param);
             }
         },
-        unBindScroll:function(ele){
-            $("body").unbind("touchmove");
+        hideAfterFunc:function(jPub){
+            var fn = jPub.options.hide_after_func;
+                if(typeof fn === 'function') {
+                    fn(jPub.options.hide_after_param);
+            }
         },
+    };
+    var handleFuncs={
         /**
          * jPub jPub对象
          * $ele jquery对象
          * mode 动画入场方向暂时上右下左 1234
          */
-        animate_in:function(jPub,$ele,mode,callBackFn){
+        animateIn:function(jPub,$ele,mode,callBackFn){
             // TODO: 动画 从中间展开
             var length='';//左右移动距离
             $ele.css({
@@ -219,7 +185,7 @@
                         'width':0,
                         'height':0,
                     });
-
+                        
                     $ele.animate({
                         'width':jPub.form_info.$w,
                         'height':jPub.form_info.$h,
@@ -299,7 +265,7 @@
          * isDel,是否隐藏时移除对象
          * callBackFn回调函数
          */
-        animate_out:function(jPub,$ele,mode,isDel,callBackFn){
+        animateOut:function(jPub,$ele,mode,isDel,callBackFn){
             var length=$(document).width();
             switch (mode) {
                 case 0:
@@ -354,35 +320,65 @@
                         var a=isDel===true?$ele.remove():'';
                         a=callBackFn===undefined?'':callBackFn(jPub);
                     });
-
             }
             // $ele.hide();
-
         },
-        show_pre_func:function(jPub){
-            // var fn = window[jPub.options.show_pre_func];
-            var fn = jPub.options.show_pre_func;
-                if(typeof fn === 'function') {
-                    fn(jPub.options.show_pre_param);
+        /**
+         * 绑定确定、取消按钮
+         *
+         */
+        bindBtn:function(jPub){
+            if (jPub.options.ok_btn!==undefined) {
+                $(jPub.options.ok_btn).one('click',function(){
+                    jPub.options.ok_func(jPub.options.ok_func_param);
+                });
+            }
+            if (jPub.options.cancel_btn!==undefined) {
+                handleFuncs.bindHideTag(jPub,jPub.options.cancel_btn);
+                // $(jPub.options.cancel_btn).one('click',function(){
+                //     jPub.options.cancel_func();
+                // });
             }
         },
-        show_after_func:function(jPub){
-            var fn = jPub.options.show_after_func;
-                if(typeof fn === 'function') {
-                    fn(jPub.options.show_after_param);
+        /**
+         * 绑定隐藏弹出层的selector
+         */
+        bindHideTag:function(jPub,tag){
+            var that=this;
+            if(tag!=".jpub-close-span"){
+                $(".jpub-close-span").remove();
+            }
+            $(tag).one('click',function(){
+                funcs.hidePreFunc(jPub);
+                funcs.hide(jPub,jPub.$element,jPub.options.animate_out,false,funcs.hideAfterFunc);
+                funcs.hide(jPub,$("#jpub-bg"),undefined,true);
+                handleFuncs.unBindScroll(jPub);
+                $(this).unbind();
+                if(tag==".jpub-close-span"){
+                    funcs.hide(jPub,$(this),undefined,true);
+                }
+                handleFuncs.unbindBtn(jPub);//解绑ok cancel
+            });
+        },
+        unbindBtn:function(jPub){
+            if (jPub.options.ok_btn!==undefined) {
+                $(jPub.options.ok_btn).unbind();
+            }
+            if (jPub.options.cancel_btn!==undefined) {
+                $(jPub.options.cancel_btn).unbind();
             }
         },
-        hide_pre_func:function(jPub){
-            var fn = jPub.options.hide_pre_func;
-                if(typeof fn === 'function') {
-                    fn(jPub.options.hide_pre_param);
+        isScroll:function(jPub){
+            // TODO: 电脑端
+            if(jPub.options.isScroll===false){
+                $("body").bind("touchmove",function(event){
+                    event.preventDefault();
+                    // $("body").unbind("touchmove");
+                });
             }
         },
-        hide_after_func:function(jPub){
-            var fn = jPub.options.hide_after_func;
-                if(typeof fn === 'function') {
-                    fn(jPub.options.hide_after_param);
-            }
+        unBindScroll:function(ele){
+            $("body").unbind("touchmove");
         },
     };
     /**

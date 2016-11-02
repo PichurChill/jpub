@@ -129,6 +129,12 @@ div,p{
     background-color: #fff;
     border-radius: 6px 6px 0 0;
 }
+.jpub-main-head-p{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    padding-top: 0.3rem;
+}
 .jpub-main-body{
     width: 100%;
     height: 50%;
