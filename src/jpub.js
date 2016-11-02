@@ -1,3 +1,4 @@
+// TODO: 点击按钮后 空格可以触发
 ;(function($,window,document,undefined){
     "use strict";
     /**
@@ -68,6 +69,7 @@
                 str+="    </div>";
 
             $(this.options_2.parent_tag).append(str);
+            // return $("#"+this.options_2.tag_id);//TODO
             return $(this.options_2.parent_tag);
         },
     };
@@ -174,24 +176,19 @@
         animateIn:function(jPub,$ele,mode,callBackFn){
             // TODO: 动画 从中间展开
             var length='';//左右移动距离
+            $ele.removeClass('anime-out-0');
             $ele.css({
                 'display':'block'
             });
             switch (mode) {
                 case 0:
-                    $ele.addClass('jpub-center1');
+                    // $ele.addClass('jpub-center1');
                     $ele.css({
                         'top':jPub.options.form_padding_top,
-                        'width':0,
-                        'height':0,
                     });
-                        
-                    $ele.animate({
-                        'width':jPub.form_info.$w,
-                        'height':jPub.form_info.$h,
-                        // 'top':jPub.form_info.$h/10
-                    },function(){
-                        callBackFn(jPub);
+                    $ele.addClass('anime-in-0');
+                    this.animateEndOnce($ele,function(){
+                         callBackFn(jPub);
                     });
                     break;
                 case 1:
@@ -267,21 +264,28 @@
          */
         animateOut:function(jPub,$ele,mode,isDel,callBackFn){
             var length=$(document).width();
+            $ele.removeClass('anime-in-0');
             switch (mode) {
                 case 0:
-                    $ele.animate({
-                        // 'top':'-100%',//nice
-                        'width':'0',
-                        'height':'0',
-                    },function(){
-                        $ele.hide();
-                        $ele.css({
-                            width:jPub.form_info.$w,
-                            height:jPub.form_info.$h,
-                        });
-                        var a=isDel===true?$ele.remove():'';
-                            a=callBackFn===undefined?'':callBackFn(jPub);
+                    $ele.addClass('anime-out-0');
+                    this.animateEndOnce($ele,function(){
+                            $ele.hide();
+                            var a=isDel===true?$ele.remove():'';
+                                a=callBackFn===undefined?'':callBackFn(jPub);
                     });
+                    // $ele.animate({
+                    //     // 'top':'-100%',//nice
+                    //     'width':'0',
+                    //     'height':'0',
+                    // },function(){
+                    //     $ele.hide();
+                    //     $ele.css({
+                    //         width:jPub.form_info.$w,
+                    //         height:jPub.form_info.$h,
+                    //     });
+                    //     var a=isDel===true?$ele.remove():'';
+                    //         a=callBackFn===undefined?'':callBackFn(jPub);
+                    // });
                     break;
                 case 1:
                     $ele.animate({
@@ -380,6 +384,12 @@
         unBindScroll:function(ele){
             $("body").unbind("touchmove");
         },
+        /**
+         * css animation-end listener
+         */
+        animateEndOnce:function($dom,callback){
+            $dom.one('animationend webkitAnimationEnd oAnimationEnd msAnimationEnd mozAnimationEnd',callback);
+        }
     };
     /**
      * 绑定新插件方法

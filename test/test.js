@@ -4,7 +4,7 @@ $(function(){
     var str="<p>This is a popupbox automatically generated</p>";
     $.jCreateForm({
         'tag_id':'hahaha',
-        'parent_tag':'#div2',
+        // 'parent_tag':'#div2',
         'content':str,
 
     });
@@ -62,7 +62,7 @@ var jpub_options={
     'close_mode':1,//背景层关闭模式
     'close_tag':'.jpub-btn-cancel',
     'form_padding_top':'150px',
-    'animate_in':2,
+    'animate_in':0,
     'animate_out':2,
     'show_pre_func':test.abc,//show之前执行方法
     'show_pre_param':test.param,

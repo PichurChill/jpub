@@ -63,7 +63,6 @@ $(".jpub-div").jShow({
 $(function(){
     $.jCreateForm({
         'tag_id':'hahaha',
-        'parent_tag':'body'
     });
 });
 $(".btn").click(){
@@ -75,7 +74,7 @@ $(".btn").click(){
 |id| name | description | default |value|require id|
 |-------------| ------------- |:-----------:| -----:| -----:| -----:|
 |1| tag_id | the PopUpBox's tag id you want name  | jpub_auto_form |-|-|
-|2|parent_tag|the parent tag you want to append|'body'|'#demo'/'.class:eq(x)'|-|
+|2|~~parent_tag~~|~~the parent tag you want to append~~|~~'body'~~|~~'#demo'/'.class:eq(x)'~~|-|
 |3|ok_text|the text of the "ok" button|'Ok'|Any word|-|
 |4|cancel_text|the text of the "cancel" button|'Cancel'|Any word|-|
 |5|content|the Information you want to show in the PopUpBox|'Information you want to show'|Any Html tag|-|
