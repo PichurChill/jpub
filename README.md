@@ -8,7 +8,9 @@
 
 view at [GitHub](https://github.com/PichurChill/jpub)
 
-##[DEMO](http://jirachi.win/jpub/)
+**Not support UC browser ！(╯‵□′)╯︵┻━┻** 
+
+## [DEMO](http://jirachi.win/jpub/)
 # Function List
 |id|name|description|
 |---|:--|:--|
@@ -40,7 +42,7 @@ $(".jpub-div").jShow({
 |3|bg_color | background div color| 'rgba(0,0,0,0.5)'|'rgba(x,x,x,x)'|2|
 |4|animate_in|animate-in-direction:<br>1:↓、2:←、3:↑、4:→|3|1/2/3/4|-|
 |5|animate_out|animate-out-direction:<br>1:↑、2:→、3:↓、4:←|0|0/1/2/3/4|-|
-|6|**close_mode**|1-click the background div to hide<br>2-create a tag to hide<br>3-specify a html tag to hide|1|1/2/3|-|
+|6|**close_mode**|1-you can click the background div to hide<br>2-you can't click the background and specify a html tag to hide|1|1/2|-|
 |7|close_tag|the specified html tag|undefined|'#demo'/'.example'/...|6|
 |8|show_pre_func|the function run before the div show|undefined|obj.func/funcName()/function(){alert()}|-|
 |9|show_after_func|the function run after the div show|undefined|obj.func/funcName()/function(){alert()}|-|
@@ -75,6 +77,7 @@ $(".btn").click(){
 |-------------| ------------- |:-----------:| -----:| -----:| -----:|
 |1| tag_id | the PopUpBox's tag id you want name  | jpub_auto_form |-|-|
 |2|~~parent_tag~~|~~the parent tag you want to append~~|~~'body'~~|~~'#demo'/'.class:eq(x)'~~|-|
-|3|ok_text|the text of the "ok" button|'Ok'|Any word|-|
-|4|cancel_text|the text of the "cancel" button|'Cancel'|Any word|-|
-|5|content|the Information you want to show in the PopUpBox|'Information you want to show'|Any Html tag|-|
+|3|head_text|the head text of the box|'Notice'|Any word|-|
+|4|ok_text|the text of the "ok" button|'Ok'|Any word|-|
+|5|cancel_text|the text of the "cancel" button|'Cancel'|Any word|-|
+|6|content|the Information you want to show in the PopUpBox|'Information you want to show'|Any Html tag|-|

@@ -29,7 +29,7 @@ body,div,p{
     z-index: 2013;
 }
 /*弹出层*/
-.jpub-center1{
+/*.jpub-center1{
     left: 50%;
     top:150px;
     transform: translateX(-50%);
@@ -37,70 +37,16 @@ body,div,p{
     -moz-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     -o-transform: translateX(-50%);
-}
-.jpub-center2{
-    /*left: 50%;*/
+}*/
+/*.jpub-center2{
     top:150px;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
     -moz-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     -o-transform: translateX(-50%);
-}
-/*x(关闭)按钮*/
-.jpub-close-span {
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.5)), color-stop(100%, rgba(255, 255, 255, 0))), radial-gradient(#f2f2f2, #cccccc);
-  background: -moz-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)), -moz-radial-gradient(#f2f2f2, #cccccc);
-  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)), -webkit-radial-gradient(#f2f2f2, #cccccc);
-  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)), radial-gradient(#f2f2f2, #cccccc);
-  -moz-border-radius: 50px;
-  -webkit-border-radius: 50px;
-  border-radius: 50px;
-  -moz-box-shadow: inset 0 1px 1px rgba(191, 191, 191, 0.75), 0 2px 1px rgba(0, 0, 0, 0.25);
-  -webkit-box-shadow: inset 0 1px 1px rgba(191, 191, 191, 0.75), 0 2px 1px rgba(0, 0, 0, 0.25);
-  box-shadow: inset 0 1px 1px rgba(191, 191, 191, 0.75), 0 2px 1px rgba(0, 0, 0, 0.25);
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-  border: 2px solid #e6e6e6;
-  color: #b3b3b3;
-  /*float: right;*/
-  height: 23px;
-  width: 23px;
-  text-indent: -9999px;
-  position: fixed;;
-  right: 2%;
-  top:2%;
-  outline: none;
-  text-decoration: none;
-  z-index: 2999;
-}
-.jpub-close-span::after {
-  content: "\2716";
-  text-indent: 0;
-  display: block;
-  position: absolute;
-  top: 2px;
-  right: 3px;
-  font-size: 12px;
-  font-weight: bolder;
-  color: #848484;
-}
-.jpub-close-span:hover {
-  color: #e6e6e6;
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.5)), color-stop(100%, rgba(255, 255, 255, 0))), radial-gradient(#b3b3b3, #8c8c8c);
-  background: -moz-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)), -moz-radial-gradient(#b3b3b3, #8c8c8c);
-  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)), -webkit-radial-gradient(#b3b3b3, #8c8c8c);
-  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)), radial-gradient(#b3b3b3, #8c8c8c);
-  text-shadow: 0 -1px 0 rgba(153, 153, 153, 0.5);
-  cursor: pointer;
-}
-.jpub-close-span:active {
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.15)), color-stop(100%, rgba(255, 255, 255, 0))), radial-gradient(#8c8c8c, #808080);
-  background: -moz-linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0)), -moz-radial-gradient(#8c8c8c, #808080);
-  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0)), -webkit-radial-gradient(#8c8c8c, #808080);
-  background: linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0)), radial-gradient(#8c8c8c, #808080);
-  text-shadow: 0 -1px 0 rgba(26, 26, 26, 0.5);
-  cursor: pointer;
-}
+}*/
+
 /*渐入渐出效果*/
 /*.jpub-animate{
     -webkit-transition: all .5s ease;
@@ -164,14 +110,76 @@ body,div,p{
 .jpub-btn-cancel{
     background-color: #555;
 }
-/*animate-in*/
+/*****animate-in*****/
+/*default*/
 .anime-in-0{
+    animation: anime-in-0 0.5s ease-out;
     -webkit-animation: anime-in-0 0.5s ease-out;
 }
+
+/*↑*/
+.anime-in-1{
+    animation: anime-in-1 0.5s ease-out;
+    -webkit-animation: anime-in-1 0.5s ease-out;
+}
+
+/* →*/
+.anime-in-2{
+    animation: anime-in-2 0.5s ease-out;
+    -webkit-animation: anime-in-2 0.5s ease-out;
+}
+
+/* ↓*/
+.anime-in-3{
+    animation: anime-in-3 0.5s ease-out;
+    -webkit-animation: anime-in-3 0.5s ease-out;
+}
+/* ← */
+.anime-in-4{
+    animation: anime-in-4 0.5s ease-out;
+    -webkit-animation: anime-in-4 0.5s ease-out;
+}
+/*animate-out*/
+/*default*/
 .anime-out-0{
+    animation: anime-out-0 0.5s ease-out;
     -webkit-animation: anime-out-0 0.5s ease-out;
 }
-/*animate*/
+
+/*↓*/
+.anime-out-1{
+    animation: anime-out-1 0.5s ease-out;
+    -webkit-animation: anime-out-1 0.5s ease-out;
+}
+
+/*←*/
+.anime-out-2{
+    animation: anime-out-2 0.5s ease-out;
+    -webkit-animation: anime-out-2 0.5s ease-out;
+}
+
+/*↑*/
+.anime-out-3{
+    animation: anime-out-3 0.5s ease-out;
+    -webkit-animation: anime-out-3 0.5s ease-out;
+}
+
+/* → */
+.anime-out-4{
+    animation: anime-out-4 0.5s ease-out;
+    -webkit-animation: anime-out-4 0.5s ease-out;
+}
+/*animate-in*/
+@keyframes anime-in-0 {
+    0% {
+        transform: scale(0,0);
+        opacity: 0.1;
+    }
+    100% {
+        transform: scale(1,1);
+        opacity: 1;
+    }
+}
 @-webkit-keyframes anime-in-0 {
     0% {
         -webkit-transform: scale(0,0);
@@ -182,6 +190,57 @@ body,div,p{
         opacity: 1;
     }
 }
+@keyframes anime-in-1 {
+    from{
+        transform: translateY(100%);
+    }
+}
+@-webkit-keyframes anime-in-1 {
+    from{
+        -webkit-transform: translateY(100%);
+    }
+}
+@keyframes anime-in-2 {
+    from{
+        transform: translateX(-105%);
+    }
+}
+@-webkit-keyframes anime-in-2 {
+    from{
+        -webkit-transform: translateX(-105%);
+    }
+}
+@keyframes anime-in-3 {
+    from{
+        transform: translateY(-105%);
+    }
+}
+@-webkit-keyframes anime-in-3 {
+    from{
+        -webkit-transform: translateY(-105%);
+    }
+}
+@keyframes anime-in-4 {
+    from{
+        transform: translateX(105%);
+    }
+}
+@-webkit-keyframes anime-in-4 {
+    from{
+        -webkit-transform: translateX(105%);
+    }
+}
+/*animate-in*/
+@keyframes anime-out-0 {
+    0% {
+        transform: scale(1,1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0,0);
+        opacity: 0.1;
+    }
+}
 @-webkit-keyframes anime-out-0 {
     0% {
         -webkit-transform: scale(1,1);
@@ -190,5 +249,45 @@ body,div,p{
     100% {
         -webkit-transform: scale(0,0);
         opacity: 0.1;
+    }
+}
+@keyframes anime-out-1 {
+    to{
+        transform: translateY(200%);
+    }
+}
+@-webkit-keyframes anime-out-1 {
+    to{
+        -webkit-transform: translateY(200%);
+    }
+}
+@keyframes anime-out-2 {
+    to{
+        transform: translateX(-200%);
+    }
+}
+@-webkit-keyframes anime-out-2 {
+    to{
+        -webkit-transform: translateX(-200%);
+    }
+}
+@keyframes anime-out-3 {
+    to{
+        transform: translateY(-200%);
+    }
+}
+@-webkit-keyframes anime-out-3 {
+    to{
+        -webkit-transform: translateY(-200%);
+    }
+}
+@keyframes anime-out-4 {
+    to{
+        transform: translateX(200%);
+    }
+}
+@-webkit-keyframes anime-out-4 {
+    to{
+        -webkit-transform: translateX(200%);
     }
 }

@@ -14,7 +14,8 @@
             'form_padding_top':'30%',
             'animate_in':0,
             'animate_out':0,
-            'close_mode':1,//1-背景区域点击关闭 2-背景右上角有个× 3-指定关闭tag
+            // 'close_mode':1,//1-背景区域点击关闭 2-背景右上角有个× 3-指定关闭tag
+            'close_mode':1,//1-bg点击关闭 2-bg不能点击关闭
             'close_tag':undefined,//close_mode-3指定的tag
             // 'bg_op':0.6,
             'show_pre_func':undefined,//show之前执行方法
@@ -33,17 +34,18 @@
             // 'cancel_func_param':undefined,
 
         };
-        if(ele instanceof jQuery){
-            this.form_info={
-                $w:ele.width(),
-                $h:ele.height(),
-            };
-        }
+        // if(ele instanceof jQuery){
+        //     this.form_info={
+        //         $w:ele.width(),
+        //         $h:ele.height(),
+        //     };
+        // }
 
         //create方法参数
         this.defaults_2={
             'tag_id':'jpub_auto_form',
-            'parent_tag':'body',
+            'parent_tag':'body',//!!delete
+            'head_text':'Notice',
             'ok_text':'OK',
             'cancel_text':'Cancel',
             'content':'Information you want to show'
@@ -60,7 +62,7 @@
         },
         create:function(){
             var str="    <div class=\"jpub-target jpub-div\" id="+this.options_2.tag_id+">";
-                str+="        <div class=\"jpub-main-head\"><p class=\"jpub-main-head-p\">Notice</p></div>";
+                str+="        <div class=\"jpub-main-head\"><p class=\"jpub-main-head-p\">"+this.options_2.head_text+"</p></div>";
                 str+="        <div class=\"jpub-main-body\">"+this.options_2.content+"</div>";
                 str+="        <div class=\"jpub-main-foot\">";
                 str+="            <button class=\"jpub-btn jpub-btn-cancel\">"+this.options_2.cancel_text+"</button>";
@@ -86,7 +88,7 @@
                 //插入背景层
             var bgDiv='<div id="jpub-bg">';
                 bgDiv+='</div>';
-                bgDiv+='<button class="jpub-close-span">Close</button>';
+                // bgDiv+='<button class="jpub-close-span">Close</button>';
 
             $("html>body:eq(0)").append(bgDiv);
             // 添加背景层样式
@@ -101,11 +103,11 @@
                 case 1:
                     handleFuncs.bindHideTag(jPub,"#jpub-bg");
                     break;
+                // case 2:
+                //     handleFuncs.bindHideTag(jPub,".jpub-close-span");
+                //     break;
                 case 2:
-                    handleFuncs.bindHideTag(jPub,".jpub-close-span");
-                    break;
-                case 3:
-                    handleFuncs.bindHideTag(jPub,jPub.options.close_tag);
+                    // handleFuncs.bindHideTag(jPub,jPub.options.close_tag);
                     break;
                 default:
 
@@ -174,86 +176,30 @@
          * mode 动画入场方向暂时上右下左 1234
          */
         animateIn:function(jPub,$ele,mode,callBackFn){
-            // TODO: 动画 从中间展开
-            var length='';//左右移动距离
-            $ele.removeClass('anime-out-0');
+            var animeArr=[0,1,2,3,4];
             $ele.css({
                 'display':'block'
             });
-            switch (mode) {
-                case 0:
-                    // $ele.addClass('jpub-center1');
-                    $ele.css({
-                        'top':jPub.options.form_padding_top,
-                    });
-                    $ele.addClass('anime-in-0');
-                    this.animateEndOnce($ele,function(){
-                         callBackFn(jPub);
-                    });
-                    break;
-                case 1:
-                    $ele.addClass('jpub-center1');
-                    $ele.css({
-                        'top':'-100%',
-                    });
-                    $ele.animate({
-                        'top':jPub.options.form_padding_top,
-                    },function(){
-                        callBackFn(jPub);
-                    });
-                    break;
-                case 2:
-                    // $ele.addClass('jpub-center2');
-                    $ele.css({
-                        'top':jPub.options.form_padding_top,
-                        // 'left':'100%'
-                        'left':$(document).width()
-                    });
-                    length=$(document).width()/2-$ele.width()/2;
-                    $ele.animate({
-                        // 'left':'50%',
-                        'left':length,
-                    },function(){
-                        callBackFn(jPub);
-                    });
-                    break;
-                case 3:
-                    $ele.addClass('jpub-center1');
-                    $ele.css({
-                        'top':'100%',
-                    });
-                    $ele.animate({
-                        'top':jPub.options.form_padding_top,
-                    },function(){
-                        callBackFn(jPub);
-                    });
-                    break;
-                case 4:
-                    // $ele.addClass('jpub-center2');
-                    $ele.css({
-                        'top':jPub.options.form_padding_top,
-                        'left':'-100%'
-                    });
-                    length=$(document).width()/2-$ele.width()/2;
-
-                    $ele.animate({
-                        'left':length,
-                    },function(){
-                        callBackFn(jPub);
-                    });
-                    break;
-                default:
-                    $ele.css({
-                        'top':jPub.options.form_padding_top,
-                        'left':'-100%'
-                    });
-                    $ele.addClass('jpub-center1');
-                    $ele.fadeIn(function(){
-                        callBackFn(jPub);
-                    });
-                    break;
+            $ele.removeClass (function (index, css) {
+                return (css.match (/(^|\s)anime-out-\S+/g) || []).join(' ');
+            });
+            if($.inArray(mode,animeArr)>-1){
+                $ele.css({
+                    'top':jPub.options.form_padding_top,
+                });
+                $ele.addClass('anime-in-'+mode+'');
+                this.animateEndOnce($ele,function(){
+                     callBackFn(jPub);
+                });
+            }else{
+                $ele.css({
+                    'top':jPub.options.form_padding_top,
+                });
+                $ele.addClass('anime-in-0');
+                this.animateEndOnce($ele,function(){
+                     callBackFn(jPub);
+                });
             }
-
         },
         /**
          * jPub jPub对象
@@ -263,69 +209,26 @@
          * callBackFn回调函数
          */
         animateOut:function(jPub,$ele,mode,isDel,callBackFn){
-            var length=$(document).width();
-            $ele.removeClass('anime-in-0');
-            switch (mode) {
-                case 0:
-                    $ele.addClass('anime-out-0');
-                    this.animateEndOnce($ele,function(){
-                            $ele.hide();
-                            var a=isDel===true?$ele.remove():'';
-                                a=callBackFn===undefined?'':callBackFn(jPub);
-                    });
-                    // $ele.animate({
-                    //     // 'top':'-100%',//nice
-                    //     'width':'0',
-                    //     'height':'0',
-                    // },function(){
-                    //     $ele.hide();
-                    //     $ele.css({
-                    //         width:jPub.form_info.$w,
-                    //         height:jPub.form_info.$h,
-                    //     });
-                    //     var a=isDel===true?$ele.remove():'';
-                    //         a=callBackFn===undefined?'':callBackFn(jPub);
-                    // });
-                    break;
-                case 1:
-                    $ele.animate({
-                        'top':'-110%',
-                    },function(){
+            var animeArr=[0,1,2,3,4];
+            $ele.removeClass (function (index, css) {
+                return (css.match (/(^|\s)anime-in-\S+/g) || []).join(' ');
+            });
+            if($.inArray(mode,animeArr)>-1){
+                $ele.addClass('anime-out-'+mode+'');
+                this.animateEndOnce($ele,function(){
+                        $ele.hide();
                         var a=isDel===true?$ele.remove():'';
                             a=callBackFn===undefined?'':callBackFn(jPub);
-                    });
-                    break;
-                case 2:
-                    $ele.animate({
-                        'left':'110%',
-                    },function(){
+                });
+            }else{
+                // $ele.removeClass('anime-in-0');
+                $ele.fadeOut(function(){
+                        // $ele.hide();
                         var a=isDel===true?$ele.remove():'';
-                        a=callBackFn===undefined?'':callBackFn(jPub);
-                    });
-                    break;
-                case 3:
-                    $ele.animate({
-                        'top':'110%',
-                    },function(){
-                        var a=isDel===true?$ele.remove():'';
-                        a=callBackFn===undefined?'':callBackFn(jPub);
-                    });
-                    break;
-                case 4:
-                    $ele.animate({
-                        'left':'-110%',
-                    },function(){
-                        var a=isDel===true?$ele.remove():'';
-                        a=callBackFn===undefined?'':callBackFn(jPub);
-                    });
-                    break;
-                default:
-                    $ele.fadeOut(function(){
-                        var a=isDel===true?$ele.remove():'';
-                        a=callBackFn===undefined?'':callBackFn(jPub);
-                    });
+                            a=callBackFn===undefined?'':callBackFn(jPub);
+                });
             }
-            // $ele.hide();
+            
         },
         /**
          * 绑定确定、取消按钮
@@ -349,18 +252,18 @@
          */
         bindHideTag:function(jPub,tag){
             var that=this;
-            if(tag!=".jpub-close-span"){
-                $(".jpub-close-span").remove();
-            }
+            // if(tag!=".jpub-close-span"){
+            //     $(".jpub-close-span").remove();
+            // }
             $(tag).one('click',function(){
                 funcs.hidePreFunc(jPub);
                 funcs.hide(jPub,jPub.$element,jPub.options.animate_out,false,funcs.hideAfterFunc);
                 funcs.hide(jPub,$("#jpub-bg"),undefined,true);
                 handleFuncs.unBindScroll(jPub);
                 $(this).unbind();
-                if(tag==".jpub-close-span"){
-                    funcs.hide(jPub,$(this),undefined,true);
-                }
+                // if(tag==".jpub-close-span"){
+                //     funcs.hide(jPub,$(this),undefined,true);
+                // }
                 handleFuncs.unbindBtn(jPub);//解绑ok cancel
             });
         },

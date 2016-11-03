@@ -22,6 +22,11 @@ $(function(){
     // 按钮2
     $("#show_2").click(function(){
         $("#hahaha").jShow({
+            'close_mode':1,
+            'animate_in':2,
+            'animate_out':3,
+            // 'form_padding_top':'0%',
+
             // 'ok_btn':'jinjin',
             'ok_func':function(p){
                 alert(p);
