@@ -8,9 +8,9 @@
 
 view at [GitHub](https://github.com/PichurChill/jpub)
 
-**Not support UC browser ！(╯‵□′)╯︵┻━┻** 
+**Not support UC browser ！(╯‵□′)╯︵┻━┻**
 
-## [DEMO](http://jirachi.win/jpub/)
+## [DEMO](http://jirachi.win/jpub/) (The DEMO is old version,update later...)
 # Function List
 |id|name|description|
 |---|:--|:--|
