@@ -8,9 +8,12 @@
 
 view at [GitHub](https://github.com/PichurChill/jpub)
 
-**Not support UC browser ！(╯‵□′)╯︵┻━┻**
+## notice：
+* not finished yet
+* **Not support UC browser ！(╯‵□′)╯︵┻━┻**
 
-## [DEMO](http://jirachi.win/jpub/) (The DEMO is old version,update later...)
+## [DEMO](http://jirachi.win/jpub/) (More demo coming soon..)
+-----
 # Function List
 |id|name|description|
 |---|:--|:--|
@@ -43,7 +46,7 @@ $(".jpub-div").jShow({
 |4|animate_in|animate-in-direction:<br>1:↓、2:←、3:↑、4:→|3|1/2/3/4|-|
 |5|animate_out|animate-out-direction:<br>1:↑、2:→、3:↓、4:←|0|0/1/2/3/4|-|
 |6|**close_mode**|1-you can click the background div to hide<br>2-you can't click the background and specify a html tag to hide|1|1/2|-|
-|7|close_tag|the specified html tag|undefined|'#demo'/'.example'/...|6|
+|7|close_tag|the specified html tag to hide|undefined|'#demo'/'.example'/...|6|
 |8|show_pre_func|the function run before the div show|undefined|obj.func/funcName()/function(){alert()}|-|
 |9|show_after_func|the function run after the div show|undefined|obj.func/funcName()/function(){alert()}|-|
 |10|hide_pre_param|the function run before the div hide|undefined|obj.func/funcName()/function(){alert()}|-|
