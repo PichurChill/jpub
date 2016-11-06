@@ -1,10 +1,6 @@
 /*jshint multistr: true */
 (function(){
-
-    $=function(id){
-        return document.getElementById(id);
-    };
-    var code_block_1="$(function(){\n\
+    var code_block_1="```\n $(function(){\n\
     var str=\"<p>This is a popupbox automatically generated</p>\";\n\
     $.jCreateForm({\n\
         'tag_id':'hahaha',\n\
@@ -18,6 +14,6 @@
             'ok_func_param':\"Hello,Jin\"\n\
         });\n\
     });\n\
-});";
-    $("code-block-1").innerHTML=markdown.toHTML(code_block_1);
+});\n```";
+    $("#code-block-1").html(markdown.toHTML(code_block_1));
 })();
