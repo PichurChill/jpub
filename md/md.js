@@ -32,6 +32,9 @@ var code_block_2_1="```\n\
 ```";
 var code_block_2_2="```\n\
 //js code\n\
+function alertSth(p){\n\
+    alert(p);\n\
+}\n\
 $(\"#show_2\").click(function(){\n\
     $(\"#form_2\").jShow({\n\
         'close_mode':2,\n\
