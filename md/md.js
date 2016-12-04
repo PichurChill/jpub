@@ -23,12 +23,14 @@ $(function(){\n\
 });\n\
 ```";
 
-var code_block_2="```\n\
+var code_block_2_1="```\n\
 <!-- html code -->\n\
 <div id=\"form_2\" class=\"demo-box-2\"  hidden=\"hidden\">\n\
     <button id=\"demo-2-ok\">Ok</button>\n\
 <button style=\"float:right\" id=\"demo-2-close\">Close</button><br>\n\
 </div>\n\
+```";
+var code_block_2_2="```\n\
 //js code\n\
 $(\"#show_2\").click(function(){\n\
     $(\"#form_2\").jShow({\n\
@@ -39,10 +41,12 @@ $(\"#show_2\").click(function(){\n\
             alert(p);\n\
         },\n\
         'ok_func_param':\"This is Demo2.\"\n\
+        'animate_in':1,\n\
+        'animate_out':1,\n\
     });\n\
 });\n\
 ```";
-
 $("#code-block-1").html(markdown.toHTML(code_block_1));
-$("#code-block-2").html(markdown.toHTML(code_block_2));
+$("#code-block-2-1").html(markdown.toHTML(code_block_2_1));
+$("#code-block-2-2").html(markdown.toHTML(code_block_2_2));
 })();

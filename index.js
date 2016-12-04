@@ -22,7 +22,9 @@ $(function(){
            'ok_func':function(p){
                alert(p);
            },
-           'ok_func_param':"This is Demo2."
+           'ok_func_param':"This is Demo2.",
+           'animate_in':1,
+           'animate_out':1,
        });
    });
 });
