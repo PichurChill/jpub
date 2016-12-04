@@ -9,9 +9,9 @@
 view at [GitHub](https://github.com/PichurChill/jpub)
 
 ## notice：
-* not finished yet,just "can use"
-* I will not change the API as far as possibly
-* **Not support UC browser ！(╯‵□′)╯︵┻━┻**
+* not finished yet,just "can use".
+* I will not change the API as far as possibly.
+* **Not support UC mobile browser ！(╯‵□′)╯︵┻━┻**
 
 ## [DEMO](http://jirachi.win/jpub/) (More demo coming soon..)
 -----
