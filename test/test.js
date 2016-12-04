@@ -1,7 +1,7 @@
 var a=123567;
 
 $(function(){
-    var str="<p>This is a popupbox automatically generated</p>";
+    var str="<div><p>This is a popupbox automatically generated</p></div>";
     $.jCreateForm({
         'tag_id':'hahaha',
         // 'parent_tag':'#div2',
@@ -44,7 +44,9 @@ $(function(){
             'ok_func_param':"Hello,Jin233"
         });
     });
-
+    $("#show_4").click(function(){
+        $("#form_4").jShow();
+    });
 });
 // object
 var test={
