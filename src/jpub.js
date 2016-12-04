@@ -16,7 +16,7 @@
             'animate_out':0,
             // 'close_mode':1,//1-背景区域点击关闭 2-背景右上角有个× 3-指定关闭tag
             'close_mode':1,//1-bg点击关闭 2-bg不能点击关闭
-            'close_tag':undefined,//close_mode-3指定的tag
+            'close_tag':undefined,//close_mode-2指定的tag
             // 'bg_op':0.6,
             'show_pre_func':undefined,//show之前执行方法
             'show_pre_param':undefined,
@@ -107,7 +107,7 @@
                 //     handleFuncs.bindHideTag(jPub,".jpub-close-span");
                 //     break;
                 case 2:
-                    // handleFuncs.bindHideTag(jPub,jPub.options.close_tag);
+                    handleFuncs.bindHideTag(jPub,jPub.options.close_tag);
                     break;
                 default:
 

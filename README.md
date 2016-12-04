@@ -9,7 +9,8 @@
 view at [GitHub](https://github.com/PichurChill/jpub)
 
 ## notice：
-* not finished yet
+* not finished yet,just "can use"
+* I will not change the API as far as possibly
 * **Not support UC browser ！(╯‵□′)╯︵┻━┻**
 
 ## [DEMO](http://jirachi.win/jpub/) (More demo coming soon..)
@@ -57,8 +58,8 @@ $(".jpub-div").jShow({
 |15|hide_pre_param|the parameter of hide_pre_param |undefined|Any|11|
 |16|hide_after_param|the parameter of hide_after_func |undefined|Any|12|
 |17|~~bg~~| ~~background div~~ |~~true~~ |~~true/false~~|-|
-|18|bg_color | background div color| 'rgba(0,0,0,0.5)'|'rgba(x,x,x,x)'|2|
-|19|close_tag|the specified html tag to hide|undefined|'#demo'/'.example'/...|6|
+|18|bg_color | background div color| 'rgba(0,0,0,0.5)'|'rgba(x,x,x,x)'|-|
+|19|close_tag|the specified html tag to hide|undefined|'#demo'/'.example'/...|2|
 |20|** box_padding_top **|the distance from the WINDOS's top|'30%'|'20%'/'20px'/...|-|
 
 
