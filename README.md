@@ -26,7 +26,7 @@ view at [GitHub](https://github.com/PichurChill/jpub)
 ```js
 $(".jpub-div").jShow({
     'close_mode':2,
-    'form_padding_top':'30px',
+    'box_padding_top':'30px',
     'animate_in':1,
     'animate_out':1,
     'show_pre_func':test.abc,
@@ -41,24 +41,25 @@ $(".jpub-div").jShow({
 |id| name | description | default |value|require id|
 |-------------| ------------- |:-----------:| -----:| -----:| -----:|
 |1| isScroll | - | false |true/false|-|
-|2|~~bg~~| ~~background div~~ |~~true~~ |~~true/false~~|-|
-|3|bg_color | background div color| 'rgba(0,0,0,0.5)'|'rgba(x,x,x,x)'|2|
-|4|animate_in|animate-in-direction:<br>1:↓、2:←、3:↑、4:→|3|1/2/3/4|-|
-|5|animate_out|animate-out-direction:<br>1:↑、2:→、3:↓、4:←|0|0/1/2/3/4|-|
-|6|**close_mode**|1-you can click the background div to hide<br>2-you can't click the background and specify a html tag to hide|1|1/2|-|
-|7|close_tag|the specified html tag to hide|undefined|'#demo'/'.example'/...|6|
-|8|show_pre_func|the function run before the div show|undefined|obj.func/funcName()/function(){alert()}|-|
-|9|show_after_func|the function run after the div show|undefined|obj.func/funcName()/function(){alert()}|-|
-|10|hide_pre_param|the function run before the div hide|undefined|obj.func/funcName()/function(){alert()}|-|
-|11|hide_after_func|the function run after the div hide|undefined|obj.func/funcName()/function(){alert()}|-|
-|12|show_pre_param|the parameter of show_pre_func |undefined|Any|8|
-|13|show_after_param|the parameter of show_after_func |undefined|Any|9|
-|14|hide_pre_param|the parameter of hide_pre_param |undefined|Any|10|
-|15|hide_after_param|the parameter of hide_after_func |undefined|Any|11|
-|16|**ok_btn**|the attribute name of the "ok" button |.jpub-btn-ok|'.btn_1'/'#btn_1'|-|
-|17|**cancel_btn**|the attribute name of the "cancel" button |.jpub-btn-cancel|'.btn_2'/'#btn_2'|-|
-|18|**ok_func**|the onclick function of the "ok" button  |funcs.testFunc(an "alert" function)|type of function|16|
-|19|**ok_func_param**|the parameter of ok_func |undefined|Any|18|
+|2|close_mode|1-you can click the background div to hide<br>2-you can't click the background and specify a html tag to hide|1|1/2|-|
+|3|animate_in|animate-in-direction:<br>1:↓、2:←、3:↑、4:→|3|1/2/3/4|-|
+|4|animate_out|animate-out-direction:<br>1:↑、2:→、3:↓、4:←|0|0/1/2/3/4|-|
+|5|**ok_btn**|the attribute name of the "ok" button |.jpub-btn-ok|'.btn_1'/'#btn_1'|-|
+|6|**cancel_btn**|the attribute name of the "cancel" button |.jpub-btn-cancel|'.btn_2'/'#btn_2'|-|
+|7|**ok_func**|the onclick function of the "ok" button  |funcs.testFunc(an "alert" function)|type of function|5|
+|8|**ok_func_param**|the parameter of ok_func |undefined|Any|6|
+|9|show_pre_func|the function run before the div show|undefined|obj.func/funcName()/function(){alert()}|-|
+|10|show_after_func|the function run after the div show|undefined|obj.func/funcName()/function(){alert()}|-|
+|11|hide_pre_param|the function run before the div hide|undefined|obj.func/funcName()/function(){alert()}|-|
+|12|hide_after_func|the function run after the div hide|undefined|obj.func/funcName()/function(){alert()}|-|
+|13|show_pre_param|the parameter of show_pre_func |undefined|Any|9|
+|14|show_after_param|the parameter of show_after_func |undefined|Any|10|
+|15|hide_pre_param|the parameter of hide_pre_param |undefined|Any|11|
+|16|hide_after_param|the parameter of hide_after_func |undefined|Any|12|
+|17|~~bg~~| ~~background div~~ |~~true~~ |~~true/false~~|-|
+|18|bg_color | background div color| 'rgba(0,0,0,0.5)'|'rgba(x,x,x,x)'|2|
+|19|close_tag|the specified html tag to hide|undefined|'#demo'/'.example'/...|6|
+|20|** box_padding_top **|the distance from the WINDOS's top|'30%'|'20%'/'20px'/...|-|
 
 
 ### 2、 `$.jCreateForm().jShow();`（TODO:More Themes）

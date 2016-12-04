@@ -25,11 +25,11 @@ $(function(){
             'close_mode':1,
             'animate_in':2,
             'animate_out':3,
-            // 'form_padding_top':'0%',
+            'box_padding_top':'30%',
 
             // 'ok_btn':'jinjin',
             'ok_func':function(p){
-                alert(p);
+                console.log(p);
             },
             'ok_func_param':"Hello,Jin"
         });
@@ -39,7 +39,7 @@ $(function(){
         $("#hahaha").jShow({
             // 'ok_btn':'jinjin',
             'ok_func':function(p){
-                alert(p);
+                console.log(p);
             },
             'ok_func_param':"Hello,Jin233"
         });
@@ -50,7 +50,7 @@ $(function(){
 var test={
         param:'show_before',
         abc:function(p){
-            alert(test.param);
+            console.log(test.param);
 
         },
         cde:function(){
@@ -59,7 +59,7 @@ var test={
 };
 // normal function
 function abc(param){
-    alert(param);
+    console.log(param);
 }
 var jpub_options={
     // 'bg':false,//不需要背景层
@@ -68,11 +68,11 @@ var jpub_options={
     'close_tag':'.jpub-btn-cancel',
     'form_padding_top':'150px',
     'animate_in':0,
-    'animate_out':2,
+    'animate_out':0,
     'show_pre_func':test.abc,//show之前执行方法
     'show_pre_param':test.param,
     'show_after_func':function(){
-        alert();
+        console.log('show_after');
     },//show之后执行方法
     'show_after_param':'show_after',
     'hide_pre_func':abc,//hide之后执行方法

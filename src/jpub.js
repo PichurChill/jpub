@@ -2,7 +2,7 @@
 ;(function($,window,document,undefined){
     "use strict";
     /**
-     * 构造函数
+     * 构造函数。
      */
     var jPub=function(ele, opt){
         this.$element=ele;
@@ -11,7 +11,7 @@
             'isScroll':false,
             // 'bg':true,
             'bg_color':'rgba(0,0,0,0.5)',
-            'form_padding_top':'30%',
+            'box_padding_top':'30%',
             'animate_in':0,
             'animate_out':0,
             // 'close_mode':1,//1-背景区域点击关闭 2-背景右上角有个× 3-指定关闭tag
@@ -185,7 +185,7 @@
             });
             if($.inArray(mode,animeArr)>-1){
                 $ele.css({
-                    'top':jPub.options.form_padding_top,
+                    'top':jPub.options.box_padding_top,
                 });
                 $ele.addClass('anime-in-'+mode+'');
                 this.animateEndOnce($ele,function(){
@@ -193,7 +193,7 @@
                 });
             }else{
                 $ele.css({
-                    'top':jPub.options.form_padding_top,
+                    'top':jPub.options.box_padding_top,
                 });
                 $ele.addClass('anime-in-0');
                 this.animateEndOnce($ele,function(){
@@ -228,7 +228,7 @@
                             a=callBackFn===undefined?'':callBackFn(jPub);
                 });
             }
-            
+
         },
         /**
          * 绑定确定、取消按钮
@@ -267,6 +267,9 @@
                 handleFuncs.unbindBtn(jPub);//解绑ok cancel
             });
         },
+        /**
+         * 解绑ok cancel
+         */
         unbindBtn:function(jPub){
             if (jPub.options.ok_btn!==undefined) {
                 $(jPub.options.ok_btn).unbind();
