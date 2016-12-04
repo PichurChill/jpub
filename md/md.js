@@ -43,6 +43,10 @@ $(\"#show_2\").click(function(){\n\
         'ok_func_param':\"This is Demo2.\"\n\
         'animate_in':1,\n\
         'animate_out':1,\n\
+        'show_pre_func':alertSth,\n\
+        'show_pre_param':'This dialog show before the box come-in-animation.',\n\
+        'hide_after_func':alertSth,\n\
+        'hide_after_param':'This dialog show after the box come-out-animation.'\n\
     });\n\
 });\n\
 ```";
